@@ -110,38 +110,37 @@ export const AffiliateResult = ({ data, onNewAffiliate }: AffiliateResultProps) 
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-3">
+          <div className="flex flex-col sm:flex-row gap-4">
             <Button
               onClick={copyToClipboard}
-              className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bebas text-base sm:text-lg py-4 sm:py-6 touch-target"
+              className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bebas text-lg py-6 min-h-[44px] sm:min-h-0"
             >
-              <Copy className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+              <Copy className="mr-2 h-5 w-5" />
               Copiar Link
             </Button>
             <Button
               onClick={downloadQRCode}
-              className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground font-bebas text-base sm:text-lg py-4 sm:py-6 touch-target"
+              className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground font-bebas text-lg py-6 min-h-[44px] sm:min-h-0"
             >
-              <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+              <Download className="mr-2 h-5 w-5" />
               Baixar QR Code
             </Button>
           </div>
 
           <Button
             onClick={copyDriveFolderLink}
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bebas text-base sm:text-lg py-4 sm:py-6 touch-target"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bebas text-lg py-6 min-h-[44px] sm:min-h-0"
           >
-            <FolderOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
-            <span className="hidden xs:inline">Copiar Link dos Materiais de Divulgação</span>
-            <span className="xs:hidden">Copiar Materiais</span>
+            <FolderOpen className="mr-2 h-5 w-5" />
+            Copiar Link dos Materiais de Divulgação
           </Button>
 
           <Button
             onClick={onNewAffiliate}
             variant="outline"
-            className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bebas text-base sm:text-lg py-4 sm:py-6 touch-target"
+            className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bebas text-lg py-6 min-h-[44px] sm:min-h-0"
           >
-            <Plus className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+            <Plus className="mr-2 h-5 w-5" />
             Cadastrar Novo Afiliado
           </Button>
         </CardContent>

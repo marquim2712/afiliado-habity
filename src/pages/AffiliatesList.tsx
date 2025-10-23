@@ -103,7 +103,7 @@ export const AffiliatesList = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
               <Link to="/">
-                <Button variant="outline" size="icon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground touch-target">
+                <Button variant="outline" size="icon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground min-h-[44px] sm:min-h-0">
                   <ArrowLeft className="h-4 w-4" />
                 </Button>
               </Link>
@@ -172,7 +172,7 @@ export const AffiliatesList = () => {
                           <Button
                             variant="outline"
                             size="icon"
-                            className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground touch-target"
+                            className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground min-h-[44px] sm:min-h-0"
                           >
                             <Trash2 className="h-4 w-4" />
                           </Button>
@@ -227,7 +227,7 @@ export const AffiliatesList = () => {
                         onClick={() => copyToClipboard(affiliate.codigo, "Código")}
                         variant="outline"
                         size="icon"
-                        className="shrink-0 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground touch-target"
+                        className="shrink-0 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground min-h-[44px] sm:min-h-0"
                       >
                         <Copy className="h-4 w-4" />
                       </Button>
@@ -245,7 +245,7 @@ export const AffiliatesList = () => {
                           onClick={() => copyToClipboard(affiliate.link, "Link")}
                           variant="outline"
                           size="icon"
-                          className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground touch-target"
+                          className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground min-h-[44px] sm:min-h-0"
                         >
                           <Copy className="h-4 w-4" />
                         </Button>
@@ -253,7 +253,7 @@ export const AffiliatesList = () => {
                           onClick={() => window.open(affiliate.link, "_blank")}
                           variant="outline"
                           size="icon"
-                          className="border-accent text-accent hover:bg-accent hover:text-accent-foreground touch-target"
+                          className="border-accent text-accent hover:bg-accent hover:text-accent-foreground min-h-[44px] sm:min-h-0"
                         >
                           <ExternalLink className="h-4 w-4" />
                         </Button>

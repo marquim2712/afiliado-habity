@@ -23,7 +23,7 @@ export const RegisterAffiliate = () => {
         <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
           <div className="flex items-center gap-3 sm:gap-4">
             <Link to="/">
-              <Button variant="outline" size="icon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground touch-target">
+              <Button variant="outline" size="icon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground min-h-[44px] sm:min-h-0">
                 <ArrowLeft className="h-4 w-4" />
               </Button>
             </Link>

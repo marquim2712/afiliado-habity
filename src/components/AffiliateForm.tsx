@@ -126,15 +126,15 @@ export const AffiliateForm = ({ onSuccess }: AffiliateFormProps) => {
 
   return (
     <Card className="w-full max-w-2xl bg-card/80 backdrop-blur-sm border-glow mx-4 sm:mx-auto">
-      <CardHeader className="px-4 sm:px-6">
-        <CardTitle className="text-2xl sm:text-3xl font-bebas glow-primary text-center">
+      <CardHeader className="px-6">
+        <CardTitle className="text-3xl font-bebas glow-primary text-center">
           Cadastrar Novo Afiliado
         </CardTitle>
       </CardHeader>
-      <CardContent className="px-4 sm:px-6">
-        <form onSubmit={handleSubmit} className="space-y-4 sm:space-y-6">
+      <CardContent className="px-6">
+        <form onSubmit={handleSubmit} className="space-y-6">
           <div className="space-y-2">
-            <Label htmlFor="nome" className="text-foreground font-inter text-sm sm:text-base">
+            <Label htmlFor="nome" className="text-foreground font-inter text-base">
               Nome Completo
             </Label>
             <Input
@@ -143,13 +143,13 @@ export const AffiliateForm = ({ onSuccess }: AffiliateFormProps) => {
               required
               value={formData.nome}
               onChange={handleNomeChange}
-              className="bg-input border-border text-foreground h-12 sm:h-10 text-base touch-target"
+              className="bg-input border-border text-foreground h-12 sm:h-10 text-base min-h-[44px] sm:min-h-0"
               placeholder="Ex: MARCOS SILVA"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="telefone" className="text-foreground font-inter text-sm sm:text-base">
+            <Label htmlFor="telefone" className="text-foreground font-inter text-base">
               Telefone / WhatsApp
             </Label>
             <Input
@@ -158,14 +158,14 @@ export const AffiliateForm = ({ onSuccess }: AffiliateFormProps) => {
               required
               value={formData.telefone}
               onChange={handleTelefoneChange}
-              className="bg-input border-border text-foreground h-12 sm:h-10 text-base touch-target"
+              className="bg-input border-border text-foreground h-12 sm:h-10 text-base min-h-[44px] sm:min-h-0"
               placeholder="(34) 99999-9999"
               maxLength={15}
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="cidade" className="text-foreground font-inter text-sm sm:text-base">
+            <Label htmlFor="cidade" className="text-foreground font-inter text-base">
               Cidade / Estado
             </Label>
             <Input
@@ -174,13 +174,13 @@ export const AffiliateForm = ({ onSuccess }: AffiliateFormProps) => {
               required
               value={formData.cidade}
               onChange={(e) => setFormData({ ...formData, cidade: e.target.value })}
-              className="bg-input border-border text-foreground h-12 sm:h-10 text-base touch-target"
+              className="bg-input border-border text-foreground h-12 sm:h-10 text-base min-h-[44px] sm:min-h-0"
               placeholder="Ituiutaba - MG"
             />
           </div>
 
           <div className="space-y-2">
-            <Label htmlFor="descricao" className="text-foreground font-inter text-sm sm:text-base">
+            <Label htmlFor="descricao" className="text-foreground font-inter text-base">
               Descrição Personalizada
             </Label>
             <Input
@@ -189,7 +189,7 @@ export const AffiliateForm = ({ onSuccess }: AffiliateFormProps) => {
               required
               value={formData.descricao}
               onChange={(e) => setFormData({ ...formData, descricao: e.target.value })}
-              className="bg-input border-border text-foreground h-12 sm:h-10 text-base touch-target"
+              className="bg-input border-border text-foreground h-12 sm:h-10 text-base min-h-[44px] sm:min-h-0"
               placeholder="Ex: 50%, vip, lote2"
             />
           </div>
@@ -197,7 +197,7 @@ export const AffiliateForm = ({ onSuccess }: AffiliateFormProps) => {
           <Button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bebas text-lg sm:text-xl py-4 sm:py-6 touch-target transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/50"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bebas text-xl py-6 min-h-[44px] sm:min-h-0 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/50"
           >
             {isLoading ? "CADASTRANDO..." : "CADASTRAR AFILIADO"}
           </Button>
