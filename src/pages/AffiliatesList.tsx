@@ -96,32 +96,32 @@ export const AffiliatesList = () => {
   };
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background mobile-safe-area">
       {/* Header */}
       <header className="border-b border-border/30 bg-card/50 backdrop-blur-sm">
-        <div className="container mx-auto px-4 py-6">
+        <div className="container mx-auto px-4 sm:px-6 py-4 sm:py-6">
           <div className="flex items-center justify-between">
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-3 sm:gap-4 flex-1 min-w-0">
               <Link to="/">
-                <Button variant="outline" size="icon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+                <Button variant="outline" size="icon" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground touch-target">
                   <ArrowLeft className="h-4 w-4" />
                 </Button>
               </Link>
-              <div>
-                <h1 className="text-3xl font-bebas glow-primary">Lista de Afiliados</h1>
-                <p className="text-muted-foreground font-inter">Gerencie todos os afiliados cadastrados</p>
+              <div className="flex-1 min-w-0">
+                <h1 className="text-2xl sm:text-3xl font-bebas glow-primary">Lista de Afiliados</h1>
+                <p className="text-muted-foreground font-inter text-sm sm:text-base">Gerencie todos os afiliados cadastrados</p>
               </div>
             </div>
-            <div className="flex items-center gap-2 text-secondary">
-              <Users className="h-5 w-5" />
-              <span className="font-bebas text-lg">{affiliates.length} afiliados</span>
+            <div className="flex items-center gap-2 text-secondary ml-2">
+              <Users className="h-4 w-4 sm:h-5 sm:w-5" />
+              <span className="font-bebas text-sm sm:text-lg">{affiliates.length}</span>
             </div>
           </div>
         </div>
       </header>
 
       {/* Main Content */}
-      <main className="container mx-auto px-4 py-8">
+      <main className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {isLoading ? (
           <div className="flex items-center justify-center py-12">
             <div className="text-center space-y-4">
@@ -145,24 +145,24 @@ export const AffiliatesList = () => {
             </CardContent>
           </Card>
         ) : (
-          <div className="space-y-6">
+          <div className="space-y-4 sm:space-y-6">
             {affiliates.map((affiliate) => (
               <Card key={affiliate.id} className="bg-card/80 backdrop-blur-sm border-glow hover:border-primary/50 transition-all duration-300">
-                <CardHeader>
-                  <div className="flex items-start justify-between">
-                    <div className="space-y-1">
-                      <CardTitle className="text-2xl font-bebas glow-primary">
+                <CardHeader className="px-4 sm:px-6">
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="space-y-1 flex-1 min-w-0">
+                      <CardTitle className="text-xl sm:text-2xl font-bebas glow-primary break-words">
                         {affiliate.nome}
                       </CardTitle>
                       <div className="flex items-center gap-2 text-muted-foreground">
-                        <MapPin className="h-4 w-4" />
-                        <span className="font-inter">{affiliate.cidade}</span>
+                        <MapPin className="h-4 w-4 flex-shrink-0" />
+                        <span className="font-inter text-sm sm:text-base break-words">{affiliate.cidade}</span>
                       </div>
                     </div>
-                    <div className="flex items-center gap-2">
+                    <div className="flex items-center gap-2 flex-shrink-0">
                       <Badge 
                         variant={affiliate.status === "ativo" ? "default" : "secondary"}
-                        className={affiliate.status === "ativo" ? "bg-primary text-primary-foreground" : ""}
+                        className={`text-xs ${affiliate.status === "ativo" ? "bg-primary text-primary-foreground" : ""}`}
                       >
                         {affiliate.status}
                       </Badge>
@@ -172,12 +172,12 @@ export const AffiliatesList = () => {
                           <Button
                             variant="outline"
                             size="icon"
-                            className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground"
+                            className="border-destructive text-destructive hover:bg-destructive hover:text-destructive-foreground touch-target"
                           >
                             <Trash2 className="h-4 w-4" />
                           </Button>
                         </AlertDialogTrigger>
-                        <AlertDialogContent>
+                        <AlertDialogContent className="mx-4 max-w-md">
                           <AlertDialogHeader>
                             <AlertDialogTitle>Confirmar Exclusão</AlertDialogTitle>
                             <AlertDialogDescription>
@@ -201,33 +201,33 @@ export const AffiliatesList = () => {
                     </div>
                   </div>
                 </CardHeader>
-                <CardContent className="space-y-4">
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <CardContent className="space-y-4 px-4 sm:px-6">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div className="space-y-2">
                       <div className="flex items-center gap-2">
-                        <Phone className="h-4 w-4 text-secondary" />
+                        <Phone className="h-4 w-4 text-secondary flex-shrink-0" />
                         <span className="text-sm text-muted-foreground font-inter">Telefone:</span>
                       </div>
-                      <p className="font-inter text-foreground">{affiliate.telefone}</p>
+                      <p className="font-inter text-foreground text-sm sm:text-base break-all">{affiliate.telefone}</p>
                     </div>
                     
                     <div className="space-y-2">
                       <span className="text-sm text-muted-foreground font-inter">Descrição:</span>
-                      <p className="font-inter text-foreground">{affiliate.descricao}</p>
+                      <p className="font-inter text-foreground text-sm sm:text-base break-words">{affiliate.descricao}</p>
                     </div>
                   </div>
 
                   <div className="space-y-2">
                     <span className="text-sm text-muted-foreground font-inter">Código:</span>
                     <div className="flex items-center gap-2">
-                      <code className="flex-1 p-2 bg-input rounded-md text-sm text-foreground font-mono">
+                      <code className="flex-1 p-2 bg-input rounded-md text-xs sm:text-sm text-foreground font-mono break-all">
                         {affiliate.codigo}
                       </code>
                       <Button
                         onClick={() => copyToClipboard(affiliate.codigo, "Código")}
                         variant="outline"
                         size="icon"
-                        className="shrink-0 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+                        className="shrink-0 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground touch-target"
                       >
                         <Copy className="h-4 w-4" />
                       </Button>
@@ -237,31 +237,33 @@ export const AffiliatesList = () => {
                   <div className="space-y-2">
                     <span className="text-sm text-muted-foreground font-inter">Link de vendas:</span>
                     <div className="flex items-center gap-2">
-                      <code className="flex-1 p-2 bg-input rounded-md text-sm text-foreground font-mono break-all">
+                      <code className="flex-1 p-2 bg-input rounded-md text-xs sm:text-sm text-foreground font-mono break-all">
                         {affiliate.link}
                       </code>
-                      <Button
-                        onClick={() => copyToClipboard(affiliate.link, "Link")}
-                        variant="outline"
-                        size="icon"
-                        className="shrink-0 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
-                      >
-                        <Copy className="h-4 w-4" />
-                      </Button>
-                      <Button
-                        onClick={() => window.open(affiliate.link, "_blank")}
-                        variant="outline"
-                        size="icon"
-                        className="shrink-0 border-accent text-accent hover:bg-accent hover:text-accent-foreground"
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                      </Button>
+                      <div className="flex gap-1 flex-shrink-0">
+                        <Button
+                          onClick={() => copyToClipboard(affiliate.link, "Link")}
+                          variant="outline"
+                          size="icon"
+                          className="border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground touch-target"
+                        >
+                          <Copy className="h-4 w-4" />
+                        </Button>
+                        <Button
+                          onClick={() => window.open(affiliate.link, "_blank")}
+                          variant="outline"
+                          size="icon"
+                          className="border-accent text-accent hover:bg-accent hover:text-accent-foreground touch-target"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                        </Button>
+                      </div>
                     </div>
                   </div>
 
                   <div className="flex items-center gap-2 text-muted-foreground">
-                    <Calendar className="h-4 w-4" />
-                    <span className="text-sm font-inter">
+                    <Calendar className="h-4 w-4 flex-shrink-0" />
+                    <span className="text-xs sm:text-sm font-inter">
                       Cadastrado em: {formatDate(affiliate.created_at)}
                     </span>
                   </div>

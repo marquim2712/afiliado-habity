@@ -48,47 +48,47 @@ export const AffiliateResult = ({ data, onNewAffiliate }: AffiliateResultProps) 
   };
 
   return (
-    <div className="w-full max-w-2xl space-y-6 animate-fade-in">
+    <div className="w-full max-w-2xl space-y-4 sm:space-y-6 animate-fade-in mx-4 sm:mx-auto">
       <Card className="bg-card/80 backdrop-blur-sm border-glow">
-        <CardHeader>
+        <CardHeader className="px-4 sm:px-6">
           <div className="text-center space-y-2">
-            <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/20 mb-4">
-              <Check className="w-8 h-8 text-primary" />
+            <div className="inline-flex items-center justify-center w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-primary/20 mb-4">
+              <Check className="w-6 h-6 sm:w-8 sm:h-8 text-primary" />
             </div>
-            <CardTitle className="text-3xl font-bebas glow-primary">
+            <CardTitle className="text-2xl sm:text-3xl font-bebas glow-primary">
               Afiliado Cadastrado com Sucesso!
             </CardTitle>
           </div>
         </CardHeader>
-        <CardContent className="space-y-6">
-          <div className="space-y-4 p-6 bg-background/50 rounded-lg border border-border">
-            <div className="grid grid-cols-2 gap-4">
+        <CardContent className="space-y-4 sm:space-y-6 px-4 sm:px-6">
+          <div className="space-y-4 p-4 sm:p-6 bg-background/50 rounded-lg border border-border">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <p className="text-sm text-muted-foreground font-inter">Nome:</p>
-                <p className="text-lg font-semibold text-foreground font-inter">{data.nome}</p>
+                <p className="text-base sm:text-lg font-semibold text-foreground font-inter break-words">{data.nome}</p>
               </div>
               <div>
                 <p className="text-sm text-muted-foreground font-inter">Código:</p>
-                <p className="text-lg font-semibold text-secondary glow-secondary font-bebas">
+                <p className="text-base sm:text-lg font-semibold text-secondary glow-secondary font-bebas break-all">
                   {data.codigo}
                 </p>
               </div>
             </div>
             <div>
               <p className="text-sm text-muted-foreground font-inter">Descrição:</p>
-              <p className="text-lg font-semibold text-foreground font-inter">{data.descricao}</p>
+              <p className="text-base sm:text-lg font-semibold text-foreground font-inter break-words">{data.descricao}</p>
             </div>
             <div>
               <p className="text-sm text-muted-foreground font-inter mb-2">Link de vendas:</p>
               <div className="flex gap-2">
-                <code className="flex-1 p-3 bg-input rounded-md text-sm text-foreground break-all font-mono">
+                <code className="flex-1 p-2 sm:p-3 bg-input rounded-md text-xs sm:text-sm text-foreground break-all font-mono">
                   {data.link}
                 </code>
                 <Button
                   onClick={copyToClipboard}
                   variant="outline"
                   size="icon"
-                  className="shrink-0 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground"
+                  className="shrink-0 border-secondary text-secondary hover:bg-secondary hover:text-secondary-foreground touch-target"
                 >
                   <Copy className="h-4 w-4" />
                 </Button>
@@ -97,46 +97,51 @@ export const AffiliateResult = ({ data, onNewAffiliate }: AffiliateResultProps) 
           </div>
 
           <div className="text-center space-y-4">
-            <h3 className="text-xl font-bebas text-foreground">📱 QR Code Gerado</h3>
+            <h3 className="text-lg sm:text-xl font-bebas text-foreground">📱 QR Code Gerado</h3>
             <div
               ref={qrRef}
-              className="inline-block p-6 bg-white rounded-lg shadow-lg"
+              className="inline-block p-4 sm:p-6 bg-white rounded-lg shadow-lg"
             >
-              <QRCodeCanvas value={data.link} size={256} level="H" />
+              <QRCodeCanvas 
+                value={data.link} 
+                size={window.innerWidth < 640 ? 200 : 256} 
+                level="H" 
+              />
             </div>
           </div>
 
-          <div className="flex gap-3">
+          <div className="flex flex-col sm:flex-row gap-3">
             <Button
               onClick={copyToClipboard}
-              className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bebas text-lg py-6"
+              className="flex-1 bg-secondary hover:bg-secondary/90 text-secondary-foreground font-bebas text-base sm:text-lg py-4 sm:py-6 touch-target"
             >
-              <Copy className="mr-2 h-5 w-5" />
+              <Copy className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Copiar Link
             </Button>
             <Button
               onClick={downloadQRCode}
-              className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground font-bebas text-lg py-6"
+              className="flex-1 bg-accent hover:bg-accent/90 text-accent-foreground font-bebas text-base sm:text-lg py-4 sm:py-6 touch-target"
             >
-              <Download className="mr-2 h-5 w-5" />
+              <Download className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
               Baixar QR Code
             </Button>
           </div>
 
           <Button
             onClick={copyDriveFolderLink}
-            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bebas text-lg py-6"
+            className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-bebas text-base sm:text-lg py-4 sm:py-6 touch-target"
           >
-            <FolderOpen className="mr-2 h-5 w-5" />
-            Copiar Link dos Materiais de Divulgação
+            <FolderOpen className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
+            <span className="hidden xs:inline">Copiar Link dos Materiais de Divulgação</span>
+            <span className="xs:hidden">Copiar Materiais</span>
           </Button>
 
           <Button
             onClick={onNewAffiliate}
             variant="outline"
-            className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bebas text-lg py-6"
+            className="w-full border-primary text-primary hover:bg-primary hover:text-primary-foreground font-bebas text-base sm:text-lg py-4 sm:py-6 touch-target"
           >
-            <Plus className="mr-2 h-5 w-5" />
+            <Plus className="mr-2 h-4 w-4 sm:h-5 sm:w-5" />
             Cadastrar Novo Afiliado
           </Button>
         </CardContent>
